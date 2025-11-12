@@ -1,0 +1,41 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "quickesn_diffusion2d"
+version = "0.0.2"
+description = "A simple 2D heat diffusion solver and visualization tool using finite differences."
+readme = "README.md"
+requires-python = ">=3.6"
+license-files = ["LICENSE*"]
+
+authors = [
+  { name = "quickesn", email = "st200498@stud.uni-stuttgart.de" }
+]
+
+maintainers = [
+  { name = "quickesn", email = "st200498@stud.uni-stuttgart.de" }
+]
+
+keywords = ["diffusion", "heat", "cold", "sse-wt25"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+]
+
+dependencies = [
+  "numpy>=1.20",
+  "matplotlib>=3.5"
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["diffusion2d"]
+
+[project.urls]
+Homepage = "https://gitlab-sim.informatik.uni-stuttgart.de/simulation-software-engineering-wite2526/challenge"
+
+[project.scripts]
+diffusion2d-cli = "diffusion2d.diffusion2d:solve"
+
+[project.entry-points."diffusion2d.examples"]
+example = "diffusion2d.diffusion2d:solve"
